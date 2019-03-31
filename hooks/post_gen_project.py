@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
-import sys, os, subprocess
+import sys, os
 
-#os.system("docker-compose build")
-subprocess.call(['docker-compose', 'build'])
-#os.system("docker-compose run --rm web django-admin.py startproject {{ cookiecutter.project_name }} .")
-subprocess.call(['docker-compose', 'run', '--rm', 'web', 'django-admin.py startproject {{ cookiecutter.project_name }} .'])
+os.system("docker-compose build")
+os.system("docker-compose run --rm web django-admin.py startproject {{ cookiecutter.project_name }} .")
 
 file = open("{{ cookiecutter.project_slug }}/settings.py", "r")
 from_text = """        'ENGINE': 'django.db.backends.sqlite3',
@@ -28,5 +26,5 @@ file.write(content)
 file.close()
 
 os.system("docker-compose run --rm web python manage.py startapp {{ cookiecutter.app_name }}")
-os.system("./post_stuff.sh")
-# docker-compose run --rm web python manage.py createsuperuser
+
+print("Execute ./post_stuff.sh in project directory")
