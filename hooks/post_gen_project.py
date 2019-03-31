@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
-import sys, os
+import sys, os, subprocess
 
-os.system("docker-compose build")
-os.system("docker-compose run --rm web django-admin.py startproject {{ cookiecutter.project_name }} .")
+#os.system("docker-compose build")
+subprocess.call(['docker-compose', 'build'])
+#os.system("docker-compose run --rm web django-admin.py startproject {{ cookiecutter.project_name }} .")
+subprocess.call(['docker-compose', 'run', '--rm', 'web', 'django-admin.py startproject {{ cookiecutter.project_name }} .'])
 
 file = open("{{ cookiecutter.project_slug }}/settings.py", "r")
 from_text = """        'ENGINE': 'django.db.backends.sqlite3',
