@@ -26,7 +26,7 @@ file.write(content)
 file.close()
 
 os.system("docker-compose run --rm web python manage.py startapp {{ cookiecutter.app_name }}")
-os.system("docker-compose run --rm web python manage.py migrate")
+os.system("docker-compose up -d db && docker-compose run --rm web python manage.py migrate")
 #os.system("")
 #os.system("")
 # docker-compose run --rm web python manage.py createsuperuser
