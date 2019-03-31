@@ -2,9 +2,18 @@
 
 Bootstrap your django project inside docker with PostgreSQL support.
 
+## What will I get?
+
+* Dockerfile for Django development
+* docker-compose.yml file with 2 services: web (Django) and db (PostgreSQL)
+* .gitignore file with support for python and Jetbrains software
+* .gitlab and .github directories with issue and pull/merge request templates in each
+
 ## Usage
 
-### Install cookiecutter
+### Prerequisite
+
+Install cookiecutter:
 
 ```shell
 pip install cookiecutter
