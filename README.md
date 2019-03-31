@@ -1,26 +1,35 @@
 # Django + docker-compose
 
-Bootstrap your django project inside docker.
+Bootstrap your django project inside docker with PostgreSQL support.
 
 ## Usage
 
 ### Install cookiecutter
+
 ```shell
 pip install cookiecutter
 ```
 
-### Start your project
-```shell
-cookiecutter gh:cyriac/django-docker-compose-template
-```
-
-or 
+### Create your project
 
 ```shell
-cookiecutter https://github.com/cyriac/django-docker-compose-template
+cookiecutter https://gitlab.com/cookiecutter-templates/django-docker-compose.git
 ```
 
-Once your project is bootstrapped, navigate to your project and start the app
+Bootstrapping will take some time because the script has to wait for the PostgreSQL container to come up properly to spin up the django container.
+
+What it does:
+* Ask you for a project name, slug and description as well as an app name.
+* Build the images
+* Run ```django-admin startproject``` with the project name provided
+* Patch the PostgreSQL connection information into ```settings.py```
+* Append a path of ```/``` for ```LOGIN_REDIRECT_URL``` and ```LOGOUT_REDIRECT_URL``` at the end of ```settings.py```
+* Run ```manage.py startapp``` with the app name provided
+* Waits 25 seconds for the PostgreSQL container to come up properly and run ```manage.py migrate```
+* Run ```manage.py createsuperuser``` (will ask you interactively for admin user settings)
+* Shut down all the cvontainers
+
+To spin up the project after this, change into the project directory and run:
 
 ```shell
 docker-compose up
