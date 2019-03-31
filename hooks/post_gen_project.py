@@ -14,7 +14,20 @@ to_text = """        'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'db',
         'PORT': 5432,"""
 content = file.read().replace(from_text, to_text)
+from_text = "STATIC_URL = '/static/'"
+to_text = """STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'"""
+content = content.replace(from_text, to_text)
 file.close()
 file = open("{{ cookiecutter.project_slug }}/settings.py", "w")
 file.write(content)
 file.close()
+
+#os.system("docker-compose run --rm web python manage.py migrate")
+#os.system("docker-compose run --rm web python manage.py startapp {{ cookiecutter.app_name }} .")
+#os.system("")
+#os.system("")
+# docker-compose run --rm web python manage.py createsuperuser
+# docker exec <CONTAINERID> python manage.py startapp demoapp
