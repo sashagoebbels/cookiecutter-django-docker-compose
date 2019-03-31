@@ -26,5 +26,5 @@ file.write(content)
 file.close()
 
 os.system("docker-compose run --rm web python manage.py startapp {{ cookiecutter.app_name }}")
-os.system("docker-compose up -d && sleep 10 && docker-compose run --rm web python manage.py migrate && docker-compose run --rm web python manage.py createsuperuser && docker-compose down")
+os.system("docker-compose up -d && sleep 15 && docker-compose run --rm web python manage.py migrate && docker-compose run --rm web python manage.py createsuperuser && docker-compose down")
 #os.system("./post_stuff.sh")
