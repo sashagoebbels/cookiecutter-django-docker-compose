@@ -26,5 +26,6 @@ file.write(content)
 file.close()
 
 os.system("docker-compose run --rm web python manage.py startapp {{ cookiecutter.app_name }}")
+os.system("./post_stuff.sh")
 
-print("Execute ./post_stuff.sh in project directory")
+#print("Execute ./post_stuff.sh in project directory")
