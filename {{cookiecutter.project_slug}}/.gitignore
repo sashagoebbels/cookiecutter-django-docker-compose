@@ -163,3 +163,5 @@ fabric.properties
 # Rider-specific rules
 *.sln.iml
 
+# manually added
+pgdata/*
