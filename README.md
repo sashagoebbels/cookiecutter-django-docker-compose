@@ -43,3 +43,23 @@ To spin up the project after this, change into the project directory and run:
 ```shell
 docker-compose up -d
 ```
+
+## Known problems
+
+On some hosts the PostgreSQL container comes up too slowly. This leads to an
+error message in the Python container about the database not being accessible.
+
+If you encounter this pronlem, shut down and restart the Python container with:
+
+```shell
+docker-compose stop web
+docker-compose up -d web
+```
+
+To prevent this from happening again, start both services manually with some delay by:
+
+```shell
+docker-compose up -d db
+
+docker-compose up -d web
+```

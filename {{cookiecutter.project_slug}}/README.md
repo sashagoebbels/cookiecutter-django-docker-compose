@@ -18,7 +18,7 @@ docker exec web python3 manage.py <command>
 
 ## Adding requirements
 
-If you update the `requirements.txt`file, the most simple way to update the Python
+If you update the `requirements.txt` file, the most simple way to update the Python
 installation is to rebuild the image via:
 
 ```shell

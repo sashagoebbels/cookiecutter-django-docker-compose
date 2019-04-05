@@ -27,4 +27,12 @@ file.close()
 
 os.system("docker-compose run --rm web python manage.py startapp {{ cookiecutter.app_name }}")
 os.system("docker-compose up -d && sleep 25 && docker-compose run --rm web python manage.py migrate && docker-compose run --rm web python manage.py createsuperuser && docker-compose down")
-#os.system("./post_stuff.sh")
+
+os.mkdir('{{ cookiecutter.app_name }}/static')
+file = open("{{ cookiecutter.project_slug }}/settings.py", "r")
+from_text = "STATIC_URL = '/static/'"
+to_text = """STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '{{ cookiecutter.app_name }}/static')
+"""
+content = content.replace(from_text, to_text)
+file.close()
