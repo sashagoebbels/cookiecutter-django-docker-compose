@@ -13,7 +13,7 @@ docker-compose up -d
 Access manage.py via
 
 ```shell
-docker run web python3 manage.py <command>
+docker exec web python3 manage.py <command>
 ```
 
 ## Known problems
