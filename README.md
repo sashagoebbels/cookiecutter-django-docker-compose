@@ -41,5 +41,5 @@ What it does:
 To spin up the project after this, change into the project directory and run:
 
 ```shell
-docker-compose up
+docker-compose up -d
 ```
