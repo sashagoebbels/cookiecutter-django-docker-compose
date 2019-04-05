@@ -16,6 +16,17 @@ Access manage.py via
 docker exec web python3 manage.py <command>
 ```
 
+## Adding requirements
+
+If you update the `requirements.txt`file, the most simple way to update the Python
+installation is to rebuild the image via:
+
+```shell
+docker-compose stop web
+docker-compose build web
+docker-compose up -d web
+```
+
 ## Known problems
 
 On some hosts the PostgreSQL container comes up too slowly. This leads to an
