@@ -22,7 +22,7 @@ pip install cookiecutter
 ### Create your project
 
 ```shell
-cookiecutter https://gitlab.com/cookiecutter-templates/django-docker-compose.git
+cookiecutter https://github.com/vgoebbels/cookiecutter-django-docker-compose.git
 ```
 
 Bootstrapping will take some time because the script has to wait for the PostgreSQL container to come up properly to spin up the django container.
